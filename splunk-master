@@ -1,3 +1,8 @@
 wget -O splunk-9.2.2-d76edf6f0a15-Linux-x86_64.tgz "https://download.splunk.com/products/splunk/releases/9.2.2/linux/splunk-9.2.2-d76edf6f0a15-Linux-x86_64.tgz"
 wget -O splunk-9.2.2-d76edf6f0a15.x86_64.rpm "https://download.splunk.com/products/splunk/releases/9.2.2/linux/splunk-9.2.2-d76edf6f0a15.x86_64.rpm"
+tar -xvzf splunk-9.2.2-d76edf6f0a15-Linux-x86_64.tgz -C /opt
+cd /opt/splunk/bin
 ./splunk start
+firewall-cmd --add-port=8000/tcp --permanent
+firewall-cmd --add-port=8000/udp --permanent
+firewall-cmd --reload
